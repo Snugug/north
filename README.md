@@ -101,6 +101,7 @@ North is meant to be a living document. Standards and best practices change, and
   * [Interaction](#interaction)
 	  * [Style and Syntax](#style-and-syntax)
 	  * [Libraries, Plugins, and Frameworks](#libraries-plugins-and-frameworks)
+  * [General Naming Conventions](#general-naming-conventions)
 7. [License and Acknowledgements](#license-and-acknowledgements)
 
 # Development Process
@@ -1265,6 +1266,10 @@ When building site, very often a point will come when a decision must be made as
 * If a script does not come with a minified version, determine if it can be minified. All scripts should be minified, so if a script being evaluated cannot, that should be taken into consideration.
 * Is the script performant? Does it have performance benchmarks? If not, can it be benchmarked? If a script, regardless of weight, slows down a site significantly, its use should be reconsidered.
 * Given browser support, is a heavy JavaScript library like jQuery or Dojo needed? Can paired down versions of those libraries be used? Does usage require the full support behind one of these libraries, or can a small DOM/AJAX library such as [Chibi](https://github.com/kylebarrow/chibi) be effective?
+
+## General Naming Conventions
+
+When coming up with a name it helps to follow a pattern so both naming and recalling those names later is a little easier. The pattern you should follow is to name things general to specific. If we are binding things to the keyboard, and specifically the `w` key, that JavaScript function would be named `keyboardW()` not `wKeyboard()`. If a verb is in your name, you should always write it subject then verb so write `grid-span` instead of `span-grid`.
 
 # License and Acknowledgements
 
