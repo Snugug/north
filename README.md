@@ -636,7 +636,7 @@ Just like how presentations deprecate, so do UX patterns. There are a plethora o
 * **Social Integration** - While social integration is often seen as a great boon, more often than not the plethora of third party logos scattered throughout a page make a site look more like NASCAR than a finely crafted brand. While the effect of this hasn't been thoroughly researched yet, there is one truth; social integration provides free advertising for those social networks and ties the site's branding to those social networks, for better or worse.
   * **Buttons** - Social share buttons are one of the worst additions one can make to a site. Besides being [terrible](http://zurb.com/article/883/small-painful-buttons-why-social-media-bu) for [performance](http://lastdropofink.co.uk/market-places/the-true-cost-of-adding-social-buttons/) (findings suggest that they bloat load times enough to break ideal and maybe even maximum [page load times](#payload-performance)), they have a tendency to add lots of clutter to a page; Facebook, Twitter, and Google+ for the page, the article, the gallery, and each image at a given URL? As pointed out by [Oliver Reichenstein](http://theoatmeal.com/comics/facebook_likes), users who use these social networks already know how to find content and certainly know how to share URLs. In fact, Smashing Magazine removed Facebook buttons from their site and traffic from Facebook increased because [users shared the content organically instead](https://twitter.com/smashingmag/status/204955763368660992). As stated in Oliver's article, and reinforced (humorously) by [Matthew Inman](http://theoatmeal.com/comics/facebook_likes), the best way to increase social traffic to a site is to have good content that people organically want to share, not to have social media buttons.
   * **Login** - While less harmful than social share buttons, social login buttons should be approached with a similar amount of caution, but for different reasons. Social login buttons put security into the hands of a 3rd party and tie users to that 3rd party; if either go down or are compromised for any reason, there is nothing that can be done by a site owner. They also have the possibility of increasing cognitive load by making a user remember which method they used to log in last time. Finally, as MailChimp found out [after they added, then removed social login](http://blog.mailchimp.com/social-login-buttons-arent-worth-it/), that improving failed login attempts is more about good error handling and content than adding social login.
-* **Content Pagination** - Users are very comfortable scrolling vertically on a page and have a tendency to get frustrated when content is paginated unnecessarily. Only paginate content if it is absolutely necessary, and even then provide users a way of viewing the full contents on a single page. If pagination is required, give users the ability to view the entire contents on a single page.
+* **Content Pagination** - Users are very comfortable scrolling vertically on a page and have a tendency to get frustrated when content is paginated unnecessarily. Only paginate content if it is absolutely necessary, and even then provide users a way of viewing the full contents on a single page.
 * **Content Insertionals** - Seen often in article views, content insertionals are usually links to other tangentially related content in-between paragraphs as a stand-alone paragraph or as non-hyperlink "links" in an article that produce a hover or click modal of other, likewise tangentially related content. These items take the user's attention and prevent them from being immersed in the content.
 * **Auto Play Media** - Auto playing media, audio or video, is something a user never likes to see. The choice to play media should be triggered explicitly by the user.
 * **Non User Triggered Actions** - When actions take place that are disruptive to the user that the user did not trigger, it takes them out of being immersed in the content. Examples of non-disruptive, non user triggered actions that are OK are infinite pagination or bringing in a next article flag at the bottom of an article. Examples of disruptive non user triggered actions include loading content above where the user is, pushing the page down, and refreshing a gallery of images as a user is browsing them.
@@ -1218,65 +1218,4 @@ At the root of our Sass folder is our `style.scss` file, which holds the core of
 
 Each feature being enhanced with or fallback being provided for should be named `feature.scss` and be placed into their respective folder; for instance, enhancements and fallbacks for CSS Animations  would have a folder structure that looked something like `sass/enhancements/css-animations.scss` and `sass/fallbacks/css-animations.scss`.
 
-The `partials` directory should be divided up into 3 sub directories, `global`, `components`, and `layouts`. Inside of `global`, there should be a  folder a piece for `variables`, `functions`, `mixins`, and `extendables`, with partials to match. Inside each of those folders should go partials whose content should be made available globally and aren't component specific. For instance, global color and typographic variables, background/text color contrast mixins, ligature extendables, etc…
-
-Both components and layouts should be built using a similar partial structure, henceforth known as the component partial structure. Each component should have a partial and matching folder, and inside that folder a partial a piece for `variables`, `functions`, `mixins`, and `extendables`. Each of these partials should hold styling knowledge specific to that component; for instance, `variables` could have color variables specific to that component, but the color it is set to should come from the global color partial. An example of this can be seen in the example `sass` folder.
-
-The Import Once extension should be utilized to prevent duplication of selectors for extendable classes. Mixins should share their naming convention with the object they are used to style.
-
-#### Variable Naming
-
-Global, private variables (ones that users should not touch but are needed to hold information for functions or mixins) should start with a capital letter as Sass variables are case sensitive.
-
-## Interaction
-
-What is better than a funny hat? A funny hat that spins. JavaScript adds interactivity to web pages, transforming them from static documents into living ones. JavaScript is a very flexible and powerful tool, but as Stan Lee says, "with great power there must also come -- great responsibility".
-
-### Style and Syntax
-
-A most reasonable approach to JavaScript is the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). It provides an excellent set of rules and industry best practices for writing JavaScript, and it should be followed. In addition to the Airbnb guide, the following guidelines should also be followed:
-
-* Functions must be declared before they are used
-* All custom scripts should be wrapped in anonymous, self-executing functions with any external dependencies passed in.
-
-```javascript
-(function($) {
-  var intro = 'Once upon a time, ',
-      $princess = $('#princess'),
-      $button = $('#button');
-
-  function fairytale(name) {
-    $princess.html(intro + name + '…');
-  }
-
-  $button.click(function() {
-    fairytale($princess.text());
-  });
-})(jQuery);
-
-```
-
-### Libraries, Plugins, and Frameworks
-
-When building site, very often a point will come when a decision must be made as to if a certain JavaScript library, plugin, or framework should be used. In addition to evaluating 3rd party scripts based on the quality of their code and their adherence to the JavaScript Style Guide, the following questions should be considered:
-
-* Is the added functionality worth the weight? A lot can be accomplished with very little in JavaScript. If a minified version of a script is larger than 5KB, seriously consider if everything that it offers is needed or if something smaller and lighter weight can be just as effective. Is a 21.5KB slider library plus the weight of jQuery really worth the precious few bytes and HTTP requests needed for a fast and performant site?
-* If the script builds off of another framework, such as a jQuery Plugin, examine the problem and determine if writing a custom solution can be as effective and lighter. Not everything needs to be a jQuery Plugin.
-* If a script does not come with a minified version, determine if it can be minified. All scripts should be minified, so if a script being evaluated cannot, that should be taken into consideration.
-* Is the script performant? Does it have performance benchmarks? If not, can it be benchmarked? If a script, regardless of weight, slows down a site significantly, its use should be reconsidered.
-* Given browser support, is a heavy JavaScript library like jQuery or Dojo needed? Can paired down versions of those libraries be used? Does usage require the full support behind one of these libraries, or can a small DOM/AJAX library such as [Chibi](https://github.com/kylebarrow/chibi) be effective?
-
-# License and Acknowledgements
-
-Copyright © Sam Richard (Snugug) and made available under the [MIT License (MIT)](https://github.com/Snugug/north/blob/master/LICENSE).
-
-One of the primary goals of North was to create a set of development standards that not only were designed for a modern workflow and process in mind, but also that came from the learnings and understandings of multiple industry leading experts, not a single person. These standards reach across multiple verticals, so having experts from each vertical is critical to the success of these standards. The following individuals assisted in brainstorming and developing North or otherwise directly influenced North and have not otherwise been acknowledged in the document itself, and for that I am grateful:
-
-* [Mason Wendell](https://github.com/canarymason)
-* [Eric Duran](https://github.com/ericduran)
-* [Scott Rigby](https://github.com/scottrigby)
-* [Scott Nath](https://github.com/scottnath)
-* [Nicole Henninger](https://github.com/nikkiana)
-* [Marianne Maguire Flanagan](http://www.linkedin.com/in/mariannemaguire)
-* [Miguel Blanco](http://www.mikho.com/)
-* [Adam Asch](http://www.linkedin.com/pub/adam-asch/2/135/973)
+The `partials` directory should be divided up into 3 sub directories, `global`, `components`, and `layouts`. Inside of `global`, there should be a  folder a piece for `variables`, `functions`, `mixins`, and `extendables`, with partials to match. Inside each of those folders should go partials whose content should be made available globally and a
