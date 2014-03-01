@@ -570,7 +570,7 @@ There are three parts that make up a grid; they are the columns, the gutters, an
 
 ### Symmetric Grids
 
-The most common type of grid is a symmetric grid. A symmetric grid is defined as a grid where each column is the same size. The most common type of symmetric grid is the 12 column symmetric grid. Symmetric grids have a tendency to constrain creativity in negative ways mostly due to the fact that for the most part designs built on symmetric grids have a tendency to look the same. There is an interesting mix of freedom and constraint in symmetric grids that, when used to lay out content on anything other than a column-by-column basis (4 columns, 4 identically sized pieces of content), provides enough flexibility to allow designs to meander.
+The most common type of grid is a symmetric grid. A symmetric grid is defined as a grid where each column is the same size. The most common type of symmetric grid is the 12 column symmetric grid. Symmetric grids can constrain creativity in negative ways because designs built on them tend to look the same. There is an interesting mix of freedom and constraint in symmetric grids that, when used to lay out content on anything other than a column-by-column basis (4 columns, 4 identically sized pieces of content), provides enough flexibility to allow designs to meander.
 
 ![Symmetric Grid](http://snugug.github.io/images/symmetric-grid-bootstrap.png)
 
