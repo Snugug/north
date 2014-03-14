@@ -3,10 +3,7 @@
 This is a short checklist for designers delivering visual designs or wireframes for responsive sites
 
 <ol>
-<li>Are all the elements present for all screen sizes?  
-
-All elements should be present no matter the screen size. The elements can be slightly altered,
-but all users deserve to the same content, no matter how they are viewing our website.
+<li>Are all the elements present for all screen sizes?  All elements should be present no matter the screen size. The elements can be slightly altered, but all users deserve to the same content, no matter how they are viewing our website.
 </li>
 
 <li>*Is the HTML order the same for all screen sizes?*
