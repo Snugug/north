@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70e36f2a-0c36-4595-b91c-59da934c5125" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/north.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DesignChecklist.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DesignChecklist.md" afterPath="$PROJECT_DIR$/DesignChecklist.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="north.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,7 +49,7 @@
       <file leaf-file-name="DesignChecklist.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DesignChecklist.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="22" selection-start="981" selection-end="981" vertical-scroll-proportion="0.5179856">
+            <state line="20" column="49" selection-start="894" selection-end="894" vertical-scroll-proportion="0.43165466">
               <folding />
             </state>
           </provider>
@@ -265,7 +260,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DesignChecklist.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="22" selection-start="981" selection-end="981" vertical-scroll-proportion="0.5179856">
+        <state line="20" column="49" selection-start="894" selection-end="894" vertical-scroll-proportion="0.43165466">
           <folding />
         </state>
       </provider>
