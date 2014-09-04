@@ -174,7 +174,15 @@ Benefit statements describe why a feature is important to be built based on [use
 
 #### Requirements
 
-The functional requirements of a user story are based on the desired user experience of a feature and should be thorough enough to be completed by a [designer](#designer) or [developer](#developer) without additional question. An example of incomplete requirements would be "Create a photo gallery". On the other hand, "Create a rotating display that holds five items, paginates with swipe or mouse click, draws in an image from the Image content type displayed at a 16:9 ratio with the title and short description and can resize fluidly, ordered by most recent item" is much more thorough and can be built and designed without further input.
+The functional requirements of a user story are based on the desired user experience of a feature and should be thorough enough to be completed by a [designer](#designer) or [developer](#developer) without additional question. 
+
+An example of incomplete requirements would be:
+
+> Create a photo gallery
+
+On the other hand, the following is much more thorough and can be built and designed without further input:
+
+> Create a rotating display that holds five items, paginates with swipe or mouse click, draws in an image from the Image content type displayed at a 16:9 ratio with the title and short description and can resize fluidly, ordered by most recent item
 
 #### Size and Value
 
