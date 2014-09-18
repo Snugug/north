@@ -79,6 +79,7 @@ bower install north --save-dev
     * [Media Queries](#media-queries)
     * [Iconography](#iconography)
     * [Images](#images)
+  *[Designer checklist](#designer-checklist)
 5. [Performance](#performance)
   * [Testing and Grading Performance](#testing-and-grading-performance)
   * [Payload Performance](#payload-performance)
@@ -853,6 +854,43 @@ Images, usually either content images or background images in CSS, need to be ha
 * **High Pixel Density Images** - Instead of serving different sized images for pixel densities, utilize [compressive images](http://filamentgroup.com/lab/rwd_img_compression/) to serve low weight and crisp images.
 * **Content Images** - Content images should be loaded in using a responsive image solution. Unfortunately, there is currently no standard for responsive images, so one of two responsive image solutions should be used. The primary solution should be [Borealis](https://github.com/Snugug/borealis) which provides for element query based, lazy loaded responsive images. Because it is element query based, it may not work for all instances where an image is needed. For those instances, use [Picturefill](https://github.com/scottjehl/picturefill).
 * **CSS Images** - Utilize one of the approaches outlined in the [media query asset downloading test](http://timkadlec.com/2012/04/media-query-asset-downloading-results/) that has the least amount of additional requests. Be consistent with choice in solution.
+* 
+
+## Designer Checklist
+
+-This is a short checklist for designers delivering visual designs or wireframes for responsive sites
++This is a short checklist for designers delivering visual designs or wireframes for responsive sites.
+ 
+-<ol>
+-<li>Are all the elements present for all screen sizes?  All elements should be present no matter the screen size. The elements can be slightly altered, but all users deserve to the same content, no matter how they are viewing our website.
+-</li>
++**1. Are all the elements present for all screen sizes?**  
++  All elements should be present no matter the screen size. The elements can be slightly altered, but all users deserve to the same content, no matter how they are viewing our website.
+ 
+-<li>*Is the HTML order the same for all screen sizes?*
++**2. Is the HTML order the same for all screen sizes?**  
++  We cannot re-arrange source order for HTML between screen sizes. This means that content cannot "break out of their boxes".  
+ 
+-We cannot re-arrange source order for HTML between screen sizes. This means that content cannot "break out of their boxes"
+-</li>
++**3. Are all the image elements necessary for this page?**  
++  The more image elements you can remove, the faster the load time for the web page.
++We should try and use CSS as much as possible for styling.  
+ 
+-<li>*Are all the image elements necessary for this page?*
++**4. Are any new components, typography, ect. absolutely necessary?**  
++  We should try and re-use previous styles and components as much as possible, unless we have a completely new functionality.
+ 
+-The more image elements you can remove, the faster the load time for the web page.
+-We should try and use CSS as much as possible for styling.
+-</li>
+-
+-<li>*Are any new components, typography, ect. absolutely necessary?*
+-
+-We should try and re-use previous styles and components as much as possible, unless we have a completely new functionality.
+-</li>
+-</ol>
+ 
 
 # Performance
 
