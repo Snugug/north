@@ -861,7 +861,9 @@ Images, usually either content images or background images in CSS, need to be ha
 For designers who aren't used to working with design-in-browser or responsive web designs, here is a short list of questions to ask yourself during the design process. 
  
 * **What is your minimum viable design?** Before you even start desigining, it's important to think about what is [the minimum amount of design that this site requires](#website-needs). Designers design, that's just what they do, but it's too easy to fall into over-designing a site. Remember: 
-> *"A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away." - Antoine de Saint-Exupery*.  
+
+> *"A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away." - Antoine de Saint-Exupery*. 
+
 Also, while we're on the subject of less is more, [this is still a website](http://justinjackson.ca/words.html). It's naturally responsive and lightning fast. 
 * **Are all elements present for all screen sizes?**  All elements should be present no matter the screen size. While elements can be slightly altered for a better experience, all users deserve to have access to the same content no matter how they are viewing your website. Also "hidden" elements will decrease the [accessibility of your website](#accessibility). Just try using a screen reader on a site with lots of hidden components!   
 * **Are all the media elements necessary for this page?** The more media elements that are loaded with a page, the slower the load time. This is one of the easiest places where we can "trim the fat" so to speak. Instead of [image](#images), video, and music; use typography, font-icons, and CSS whenever possible to style the page. 
