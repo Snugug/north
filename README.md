@@ -78,7 +78,7 @@ bower install north --save-dev
   * [Resolution Independence](#resolution-independence)
     * [Media Queries](#media-queries)
     * [Iconography](#iconography)
-    * [Images](#images)
+    * [Images](#images)  
   *[Designer checklist](#designer-checklist)
 5. [Performance](#performance)
   * [Testing and Grading Performance](#testing-and-grading-performance)
