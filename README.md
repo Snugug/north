@@ -10,7 +10,7 @@ North is meant to be a living document. Standards and best practices change, and
 bower install north --save-dev
 ```
 
-*Currently open to review, [v0.2.0](https://github.com/Snugug/north/releases/tag/v0.2.0) is the first preview version. Once the review period is over, a branch for the current major version will be made. Contributions are more than welcome, as long as the [Contribution Guidelines](https://github.com/Snugug/north/blob/master/CONTRIBUTING.md) are followed.*
+*Currently open to review, [v0.4.0](https://github.com/Snugug/north/releases/tag/v0.4.0) is a preview version of North. Once the review period is over, a branch for the current major version will be made. Contributions are more than welcome, as long as the [Contribution Guidelines](https://github.com/Snugug/north/blob/master/CONTRIBUTING.md) are followed.*
 
 # Table of Contents
 
@@ -21,6 +21,7 @@ bower install north --save-dev
     * [Designer](#designer)
     * [Developer](#developer)
     * [Quality Assurance](#quality-assurance)
+    * [Leads](#leads)
   * [Agile Scrum](#agile-scrum)
 	  * [User Stories](#user-stories)
 	    * [Benefit Statement](#benefit-statement)
@@ -78,6 +79,12 @@ bower install north --save-dev
   * [Resolution Independence](#resolution-independence)
     * [Media Queries](#media-queries)
     * [Iconography](#iconography)
+    * [Images](#images)
+  * [Design Constraints](#design-constraints)
+    * [One Code base](#one-code-base)
+    * [HTML Source Order Cannot Change](#html-source-order-cannot-change)
+    * [No Hiding Content](#no-hiding-content)
+    * [Design and Content Performance](#design-and-content-performance)
     * [Images](#images) 
   * [Designer Checklist](#designer-checklist)
 5. [Performance](#performance)
@@ -92,7 +99,7 @@ bower install north --save-dev
   * [General Coding Syntax](#general-coding-syntax)
   * [Markup](#markup)
     * [HTML Semantics](#html-semantics)
-    * [Accessibility](#]accessibility)
+    * [Accessibility](#accessibility)
     * [RDFa](#rdfa)
     * [Viewport Meta Tag](#viewport-meta-tag)
   * [Styling](#styling)
@@ -106,10 +113,16 @@ bower install north --save-dev
     * [Sass and Compass](#sass-and-compass)
       * [Mixin/Extend Pattern](#mixinextend-pattern)
       * [Partial Structure](#partial-structure)
+      * [Enhanced and Degraded Styling](#enhanced-and-degraded-styling)
+      * [Variable Naming](#variable-naming)
   * [Interaction](#interaction)
     * [Style and Syntax](#style-and-syntax)
     * [Libraries, Plugins, and Frameworks](#libraries-plugins-and-frameworks)
-7. [License and Acknowledgements](#license-and-acknowledgements)
+7. [Tools and Resources](#tools-and-resources)
+  * [North Sass Plugin](#north-sass-plugin)
+	* [Generator North](#generator-north)
+  * [Intake Center](#intake-center)
+8. [License and Acknowledgements](#license-and-acknowledgements)
 
 # Development Process
 
@@ -127,7 +140,7 @@ In any given project, there are a variety of roles that each play a part in the 
 
 ### Product Owner
 
-Either the individual who directly owns the product or company the product is being developed for, or a designated representative for the product or company who has been given direct permission to make decisions for the product being developed. This individual needs to be able to make decisions on their own without consulting others and acts as a fully involved individual in the lifecycle of a project. They are responsible for prioritizing the [backlog](#backlog) of, determining [requirements](#requirements) for, and assisting in writing [user stories](#user-stories). There should only be a single product owner per project.
+Either the individual who directly owns the product or company the product is being developed for, or a designated representative for the product or company who has been given direct permission to make decisions for the product being developed. This individual needs to be able to make decisions on their own without consulting others, acts as a fully involved individual in the lifecycle of a project, and must understand and be able to fully articulate the [vision](#project-vision) of the project. They are responsible for prioritizing the [backlog](#backlog) of, determining [requirements](#requirements) for, and assisting in writing [user stories](#user-stories). There should only be a single product owner per project.
 
 ### Project Manager
 
@@ -139,17 +152,21 @@ There are two types of [designs](#visual-design) that need to happen during a ty
 
 ### Developer
 
-Much like designers, there are two types of developers, front end developers and back end developers. Front end developers primarily deal with what is actually put in front of users, in the case of web projects the [HTML](#markup), [CSS](#styling), and [JavaScript](#interaction), whereas backend developers primarily work on the systems needed to store, retrieve, and manipulate the data on the server side (what users do not see). Both types of developers need to work together to create the final product that will be consumed by the user. Front end developers will spend a lot of time working with designers to ensure the final product meets their expectations while still being workable and [performant](#performance) based on the realities of the medium being developed for. Because of this close working relationship, front end developers often straddle the line between designer and developer and should be given the leeway to do so.
+Much like designers, there are two types of developers: front end developers and back end developers. Front end developers primarily deal with what is actually put in front of users, in the case of web projects the [HTML](#markup), [CSS](#styling), and [JavaScript](#interaction), whereas backend developers primarily work on the systems needed to store, retrieve, and manipulate the data on the server side (what users do not see). Both types of developers need to work together to create the final product that will be consumed by the user. Front end developers will spend a lot of time working with designers to ensure the final product meets their expectations while still being workable and [performant](#performance) based on the realities of the medium being developed for. Because of this close working relationship, front end developers often straddle the line between designer and developer and should be given the leeway to do so.
 
 ### Quality Assurance
 
 Individuals working on quality assurance (QA) ensure that new code created during a [sprint](#iterations) matches the [requirements](#requirements) of the [user story](#user-stories) and does not break the functionality already in place from previous sprints. QA needs to understand how functionality may differ across platforms (on the web, [browsers and devices](#progresive-enhancement)) and work with developers when this is unclear. No code should be [released](#tags-and-releases) until QA has given sign off.
 
+### Leads
+
+It is often useful, although not necessary, for an individual Designer, Developer, or QA member be designated as a lead for each discipline. This can take the form of a Lead Designer, Lead Developer, and lead QA, or it can be more specific, taking the form of Lead Visual Designer, Lead UX Designer, Lead Front End Developer, Lead Back End Developer, Lead Functional QA, Lead Cross Browser QA, etc…. No matter how it is divided, leads all share the same extra responsibilities; leads are responsible for and have final say over direction (and if appropriate, architecture) for their discipline, communicating that direction to and mentoring the other individuals in their discipline, and communicating and explaining that direction to the product owner and project manager.
+
 ## Agile Scrum
 
 ### User Stories
 
-A user story describes work that needs to be done for a feature of a particular product. User stories contain [benefit statements](#benefit-statement), [requirements](#requirements), [a size, and a value](#size-and-value). [Project Managers](#project-manager) and [product owners](#product-owner) should work together to create the basics of a user story ([benefit statements](#benefit-statement), [requirements](#requirements), [value](#size-and-value); often called a **stub**), flush out [requirements](#requirements) with a [user experience designer](#designer), and have work with the team to ensure stories are [sized](#size-and-value). Once all of these items are complete, a user story is considered **defined**. Once a product owner has prioritized them in the [backlog](#backlog), they are considered **consumable**. It behooves teams to have enough user stories defined and consumable to cover the current [iteration](#iterations) and one to two iterations in the future at any given time.
+A user story describes work that needs to be done for a feature of a particular product. User stories contain [benefit statements](#benefit-statement), [requirements](#requirements), [a size, and a value](#size-and-value). [Project Managers](#project-manager) and [product owners](#product-owner) should work together to create the basics of a user story ([benefit statements](#benefit-statement), [requirements](#requirements), [value](#size-and-value); often called a **stub**), flush out [requirements](#requirements) with a [user experience designer](#designer), and work with the team to ensure stories are [sized](#size-and-value). Once all of these items are complete, a user story is considered **defined**. Once a product owner has prioritized them in the [backlog](#backlog), they are considered **consumable**. It behooves teams to have enough user stories defined and consumable to cover the current [iteration](#iterations) and one to two iterations in the future at any given time.
 
 When determining what user stories to stub out first, it is important to look to the [content strategy](#content-strategy) of a product. [Content types](#content-modeling) that are most valuable should have their features prioritized when it comes to creating user stories. The [information architecture](#information-architecture) will also assist in determining what features are needed and therefore what user stories should be generated. Features based off of content strategy should have the value of their content types associated to them in order to provide insight into overall value being generated by a given feature.
 
@@ -164,6 +181,12 @@ The functional requirements of a user story are based on the desired user experi
 #### Size and Value
 
 The size of a story is how much effort it will take to complete based on a relative scale of other similar features built, whereas value is a relative determination of how aligned with business needs a given feature is. Both size and value should be a [Fibonacci number](http://en.wikipedia.org/wiki/Fibonacci_sequence).
+
+> Out of the first six numbers of the Fibonacci sequence, four are prime. This limits the possibilities to break down a task equally into smaller tasks to have multiple people work on it in parallel. Doing so could lead to the misconception that the speed of a task could scale proportionally with the [number of people working on it](#brookss-law). The 2^n series is most vulnerable to such a problem. The Fibonacci sequence in fact forces one to re-estimate the smaller tasks one by one.
+>
+> [KillerInsect, StackOverflow](http://stackoverflow.com/questions/9362286/why-is-the-fibonacci-series-used-in-agile-planning-poker/9377005#9377005)
+
+This applies not only to tasks, but to value as well. One very popular technique for estimating sizes (and can likewise be applied to value) is [planning poker](http://en.wikipedia.org/wiki/Planning_poker). Planning poker is a consensus-based technique where team members secretly estimate what they believe size or value should be and all estimates are revealed at once. This is done to avoid the cognitive basis of [anchoring](http://en.wikipedia.org/wiki/Anchoring) where the first number spoken aloud sets the precedent for subsequent estimates. After the reveal, the team discusses their reasoning for their estimates, eventually coming to a consensus on the estimate. If the team cannot come to a consensus on estimates, the largest estimate is usually used. When planning, each team member's estimate holds equal weight, regardless of whether they are a [lead](#leads) or not.
 
 For sizes, any size above 21 is usually too much to work on in a single iteration and the work should be split into smaller pieces and an epic, or overarching story, should be created. Size is not just based on development difficulty; it includes difficulty for all [team members](#roles-and-responsibilities) that would work on a feature for an iteration, including design and QA. Size should also account for risk, which could increase size for features that otherwise require little actual work to do. The size of a story should be agreed upon by consensus by all team members working on a feature. Sizing should happen throughout an [iteration](#iterations).
 
@@ -187,7 +210,7 @@ At the end of each iteration, the team should come together to present the work 
 
 All projects, no matter how big, no matter how small, should be put under a [version control system](http://en.wikipedia.org/wiki/Version_control) (VCS) before work begins on the project. Introducing version control early and enforcing its use will ensure a solid understanding of where code comes from in a project and eliminates the need for user-centric naming conventions such as `item-final.js`, `item-final-really.js`, `item-really-really-final.js`. It makes it easy to track how an item has changed over time and roll changes back if need be. Using version control systems also allows gates to be put up to allow for processes to be put in place before an item becomes finalized.
 
-The version control system of choice is [Git](http://en.wikipedia.org/wiki/Git_\(software\)), allowing for a fully decentralized VCS that is designed for non-linear, distributed development. It has very strong safeguards against corruption of the chain of changes and can version just about any file type that can be thrown at it. It is open source and works across all major platforms. For a full introduction to Git, see the freely-available [Pro Git](http://git-scm.com/book) book.
+The version control system of choice is [Git](http://en.wikipedia.org/wiki/Git_(software)), allowing for a fully decentralized VCS that is designed for non-linear, distributed development. It has very strong safeguards against corruption of the chain of changes and can version just about any file type that can be thrown at it. It is open source and works across all major platforms. For a full introduction to Git, see the freely-available [Pro Git](http://git-scm.com/book) book.
 
 ### Feature Branches
 
@@ -220,6 +243,8 @@ To combat these issues with large and expanding teams, those individuals involve
 
 Content strategy is the process by which content is analyzed, sorted, constructed, and placed. Users come to a site for its content first and foremost, so it is the most important part of a site. Before any discussion of [design](#visual-design) or [development](#website-building-blocks), an understanding of a [product owner's](#product-owner) content is imperative in order to produce not only an effective website, but lay an effective foundation for any and all future endeavors, from apps to ads to printed material. The entirety of a finished product is determined by this initial step, from what content actually is put onto pages to what [components](#components) get built to what the final site [looks like](#visual-design).
 
+The following examples [are available](http://pointnorth.io/downloads/global-news-org.intake) as an [Intake Center](#intake-center) export. To view them in Intake Center, download the `.intake` file and import it.
+
 ## Project Vision
 
 Before knowing what content will best serve a site, and therefore what features will best serve the content, a goal for the project should be decided upon. This can be accomplished by writing a **Vision Statement**, and should be the first content strategy deliverable. Vision statements should answer the following questions:
@@ -234,7 +259,7 @@ Before knowing what content will best serve a site, and therefore what features 
 
 Vision statement provide a single grounding point for all decisions needed to create a successful product. The following is an example vision statement for a made-up news organization:
 
-> In order to provide for a well-informed electorate who want to stay up-to-date and relate to high quality relevant worldwide news and information on an ever growing array of platforms, our editorial team will utilize an easy-to-use platform that can be accessed from any device from across the world to quickly and effortlessly update and create new stories.
+> In order to provide for a well-informed electorate who want to stay up-to-date and relate to high quality relevant worldwide news and information on an ever growing array of platforms, our editorial team will utilize an easy-to-use platform that can be accessed from any device from across the world to quickly and effortlessly update and create news stories.
 
 ## User Personas
 
@@ -469,7 +494,7 @@ Information architecture (IA) is a process that determines what pieces of what c
 
 Architectures should be constructed so that the [most valuable content](#content-modeling) is most prominent, with less valuable content less prominent. When devising architectures, make sure they are [consistent and predictable](#consistency-and-predictability). They should be [comprehensible](#complexity-and-complication), [uncluttered](#signal-to-noise-ratio), and follow the [hierarchy of website needs](#website-needs). Like with [visual design](#visual-design), pictures are not requirements; architectures should be sketched in outlines and [HTML](#design-in-browser). Determine why content items should be where they are and how they interact with each other; don't just start drawing pictures or playing with cutouts. One important thing to keep in mind when creating IAs, the [product owner](#product-owner) is not the audience. Lean upon what [users](#user-personas) actually want.
 
-While building out an IA, the product's [content mode](#content-mode) may need to be revised. When building IAs, especially when the content model needs to be revised, keep the following rules of thumb in mind.
+While building out an IA, the product's [content model](#content-modeling) may need to be revised. When building IAs, especially when the content model needs to be revised, keep the following rules of thumb in mind.
 
 * **Truncation is not a content strate…**
   * Content that is truncated is usually not written for summary or reuse
@@ -562,27 +587,37 @@ For generations, humans have used conversation to pass down stories and learn ab
 
 ## Grids
 
-Grids should be utilized to keep order on a page. As described in [Responsive Grids](http://snugug.github.io/responsive-grids/#/), grids enforce proportion and constraint on a design and provide order and structure to information. The best grid is specific to the content and design of a site, as it is an extension of both. In print, grids are easy as everything from the display size to the reading mode is fixed, but this is not true on the web, so a one-size-fits-all approach to grids doesn't work. While the [960 Grid](http://960.gs/) may have been a useful stopgap as the web was treated like print, but as it evolves, so must the grids used. The grids from Twitter Bootstrap or Zurb Foundation are no better; they are a single (if flexible) grid meant to cover everything in a generic way. Instead of using another designer's grid, create grids for the design and the content of the current site. The preferred grid framework to work in is [Singularity](https://github.com/team-sass/singularity) as it provides the flexibility needed to create complex and responsive grids that are truly custom to design and content.
+Grids should be utilized to keep order on a page. As described in [Responsive Grids](http://snugug.github.io/responsive-grids/#/), grids enforce proportion and constraint on a design and provide order and structure to information. Ideally a grid is specific to the content and design of a site, as it should be an extension of both.
 
-Grids are primarily [layouts](#layouts) in CSS.
+> Grids do not exist in a vacuum. They exist in relation to the content. We never start with a grid. We start with an idea which is then translated into a form, a structure.
+> *Linda van Deursen*
+
+Grid Systems (Twitter Bootstrap, Zurb Foundation) flow content in a generic way that may be usable, but are not recommended as they neither an extension of a site's content nor its design.
+
+Instead of using generic grids, [content-out layouts](http://alistapart.com/article/content-out-layout) are recommended. Grid Frameworks ([Singularity](https://github.com/team-sass/singularity), [Susy](https://github.com/ericam/susy), [Gridset App](https://gridsetapp.com/) (paid service)) are excellent as they provide the flexibility needed to create complex and robust content-out responsive grids.
+
+Grids are primarily used in [layouts](#layouts) in CSS.
+
+The following grid examples are based on the Singularity Grid Framework.
 
 ### Parts of a Grid
 
 There are three parts that make up a grid; they are the columns, the gutters, and the gutter style:
 
-* **Columns** - In Singularity defined by the `$grids` variable, columns represent the relationship between each major piece of a grid. When attaching items to a grid, they are attached to whole pieces of a column or multiple columns (which would then include gutters).
-* **Gutters** - In Singularity defined by the `$gutters` variable, gutters are the whitespace between each column. Content is never snapped to a gutter, and each gutter is the same width.
-* **Gutter Styles** - In Singularity defined by the `$gutter-styles` variable, gutters can either be placed opposite each column with the last column not receiving a gutter (`|C|G|C|G|C|`) or split in half with each column getting one half of a gutter's width on either side, including the first and last columns (`|g|C|g|C|g|C|g`). Gutters can also either be fluid or fixed in width.
+* **Columns** - An individual section of a grid. Columns that are based on relationships between each other work best for content-out responsive grids and being able to create these types of columns are one of the hallmarks of a Grid Framework. Columns that are all equally sized are generic and what are usually found in Grid Systems.
+* **Grids** - Grids are a collection of columns. When attaching items to a grid, they are either attached to a whole column or multiple columns. If attached to multiple columns, the total span includes all of the gutters spanned.
+* **Gutters** - Gutters are the whitespace between each column. Content is never snapped to a gutter, and each gutter is the same width. Gutters can fluid in relation to column width or fixed (either a fixed value or a fixed percentage).
+* **Gutter Styles** - Gutters can either be placed opposite each column with the last column not receiving a gutter (`|C|G|C|G|C|`) or split in half with each column getting one half of a gutter's width on either side, including the first and last columns (`|g|C|g|C|g|C|g`).
 
 ### Symmetric Grids
 
-The most common type of grid is a symmetric grid. A symmetric grid is defined as a grid where each column is the same size. The most common type of symmetric grid is the 12 column symmetric grid. Symmetric grids have a tendency to constrain creativity in negative ways mostly due to the fact that for the most part designs built on symmetric grids have a tendency to look the same. There is an interesting mix of freedom and constraint in symmetric grids that, when used to lay out content on anything other than a column-by-column basis (4 columns, 4 identically sized pieces of content), provides enough flexibility to allow designs to meander.
+The most common type of grid is a symmetric grid, and usually what is defined by Grid Systems. A symmetric grid is defined as a grid where each column is the same size. The most common type of symmetric grid is the 12 column symmetric grid. Symmetric grids have a tendency to constrain creativity in negative ways mostly due to the fact that design then starts with the grid instead of with the content. There is also an interesting mix of freedom and constraint in symmetric grids that, when used to lay out content on anything other than a column-by-column basis (4 columns, 4 identically sized pieces of content), provides enough flexibility to allow designs to meander.
 
 ![Symmetric Grid](http://snugug.github.io/images/symmetric-grid-bootstrap.png)
 
 ### Asymmetric Grids
 
-Unlike the common symmetric grid, the uncommon asymmetric grid provides for interesting design constraints based on content and design by having columns that are different sizes from each other. This allows for grids and design to align without the providing wiggle room to break a design. There are four types of asymmetric grids, custom, compound, ratio based, and spiral based. [Singularity Extras](https://github.com/team-sass/singularity-extras) provides an easy way to create these different kinds of asymmetric grids for use in Singularity.
+Unlike the common symmetric grid, the uncommon asymmetric grid provides for interesting design constraints allowing for content-out layouts and design by having columns that are different sizes from each other. This allows for grids and design to align without the providing wiggle room to break a design. There are four types of asymmetric grids: custom, compound, ratio based, and spiral based. [Singularity Extras](https://github.com/team-sass/singularity-extras) provides an easy way to create these different kinds of asymmetric grids for use in Singularity.
 
 #### Custom Grids
 
@@ -592,7 +627,7 @@ Custom asymmetric grids are asymmetric grids where column sizes are determined b
 
 #### Compound Grids
 
-Compound grids are asymmetric grids that are created by overlaying two or more symmetric girds on top of each other to create a new asymmetric grid. The example shows a 3-4 compound grid, where a 3 column symmetric and a 4 column symmetric grid are overlaid to create a 6 column asymmetric grid. Why not simply use a 12 column grid? With this compound grid, spans are constrained to multiples of 1/4 and 1/3, meaning that a span of 5/12 or 7/12 could not happen. The top section shows the final compound grid, with the middle section showing the grid split into thirds and bottom section showing the grid split into quarters.
+Compound grids are asymmetric grids that are created by overlaying two or more symmetric grids on top of each other to create a new asymmetric grid. The example shows a 3-4 compound grid, where a 3 column symmetric and a 4 column symmetric grid are overlaid to create a 6 column asymmetric grid. Why not simply use a 12 column grid? With this compound grid, spans are constrained to multiples of 1/4 and 1/3, meaning that a span of 5/12 or 7/12 could not happen. The top section shows the final compound grid, with the middle section showing the grid split into thirds and bottom section showing the grid split into quarters.
 
 ![Compound Grid](http://snugug.github.io/images/asymmetric-grid-compound.png)
 
@@ -648,7 +683,7 @@ Just like how presentations deprecate, so do UX patterns. There are a plethora o
 * **Back Buttons** - Popularized by iOS, back buttons have become popular especially with designed that try to mimic app-like interfaces. Don't use them. Every browser has a native, easily accessible, well integrated back button; one that behaves better than any that could or should be built.
 * **Page Preloaders** - Users want to get to a site's content as quickly as possible. If instead of providing it a preloader is put up that is designed to halt a user from getting content until every piece that makes up that content is available, a user is likely to [leave and not come back](#performance)
 * **Social Integration** - While social integration is often seen as a great boon, more often than not the plethora of third party logos scattered throughout a page make a site look more like NASCAR than a finely crafted brand. While the effect of this hasn't been thoroughly researched yet, there is one truth; social integration provides free advertising for those social networks and ties the site's branding to those social networks, for better or worse.
-  * **Buttons** - Social share buttons are one of the worst additions one can make to a site. Besides being [terrible](http://zurb.com/article/883/small-painful-buttons-why-social-media-bu) for [performance](http://lastdropofink.co.uk/market-places/the-true-cost-of-adding-social-buttons/) (findings suggest that they bloat load times enough to break ideal and maybe even maximum [page load times](#payload-performance)), they have a tendency to add lots of clutter to a page; Facebook, Twitter, and Google+ for the page, the article, the gallery, and each image at a given URL? As pointed out by [Oliver Reichenstein](http://theoatmeal.com/comics/facebook_likes), users who use these social networks already know how to find content and certainly know how to share URLs. In fact, Smashing Magazine removed Facebook buttons from their site and traffic from Facebook increased because [users shared the content organically instead](https://twitter.com/smashingmag/status/204955763368660992). As stated in Oliver's article, and reinforced (humorously) by [Matthew Inman](http://theoatmeal.com/comics/facebook_likes), the best way to increase social traffic to a site is to have good content that people organically want to share, not to have social media buttons.
+  * **Buttons** - Social share buttons are one of the worst additions one can make to a site. Besides being [terrible](http://zurb.com/article/883/small-painful-buttons-why-social-media-bu) for [performance](http://lastdropofink.co.uk/market-places/the-true-cost-of-adding-social-buttons/) (findings suggest that they bloat load times enough to break ideal and maybe even maximum [page load times](#payload-performance)), they have a tendency to add lots of clutter to a page; Facebook, Twitter, and Google+ for the page, the article, the gallery, and each image at a given URL? As pointed out by [Oliver Reichenstein](http://ia.net/blog/sweep-the-sleaze/), users who use these social networks already know how to find content and certainly know how to share URLs. In fact, Smashing Magazine removed Facebook buttons from their site and traffic from Facebook increased because [users shared the content organically instead](https://twitter.com/smashingmag/status/204955763368660992). As stated in Oliver's article, and reinforced (humorously) by [Matthew Inman](http://theoatmeal.com/comics/facebook_likes), the best way to increase social traffic to a site is to have good content that people organically want to share, not to have social media buttons.
   * **Login** - While less harmful than social share buttons, social login buttons should be approached with a similar amount of caution, but for different reasons. Social login buttons put security into the hands of a 3rd party and tie users to that 3rd party; if either go down or are compromised for any reason, there is nothing that can be done by a site owner. They also have the possibility of increasing cognitive load by making a user remember which method they used to log in last time. Finally, as MailChimp found out [after they added, then removed social login](http://blog.mailchimp.com/social-login-buttons-arent-worth-it/), that improving failed login attempts is more about good error handling and content than adding social login.
 * **Content Pagination** - Users are very comfortable scrolling vertically on a page and have a tendency to get frustrated when content is paginated unnecessarily. Only paginate content if it is absolutely necessary, and even then provide users a way of viewing the full contents on a single page.
 * **Content Insertionals** - Seen often in article views, content insertionals are usually links to other tangentially related content in-between paragraphs as a stand-alone paragraph or as non-hyperlink "links" in an article that produce a hover or click modal of other, likewise tangentially related content. These items take the user's attention and prevent them from being immersed in the content.
@@ -871,19 +906,65 @@ Also, while we're on the subject of less is more, [this is still a website](http
 * **Is the HTML source order the same for all screen sizes?** There are lots of fancy things we can do that changes the visual order without changing the source order, so make sure your designs take advantage of these and don't require a source order change for different screensizes. Besides removing the need to alter the DOM with JavaScript (which is never recommended proper source order improves [accessibility](#accessibility) and SEO. 
  
 
+## Design Constraints
+
+> Design depends largely on constraints
+> 
+>  [*Charles Eames*](www.scielo.cl/pdf/arq/n49/art11.pdf)
+
+There are a number of design constraints when creating projects that are responsive. Designing for the web and designing for print have a different set of initial constraints and a different set of ongoing constraints, so when [designing for the web](#visual-design) the constraints and process of print design [likely won't work](#design-in-browser). The following is an explanation of some of the new design constraints of designing for the web.
+
+### One Code Base
+
+> …[T]here is no mobile web… There are plenty of mobile devices. And equally there is no desktop web. It is just the web… one web.
+> 
+> [*Jeremy Keith*](http://adactio.com/articles/5826/)
+
+When designing for the web, [no matter the screen size or device](#device-detection) a user chooses to access a site with, that is not a "different web". It's not the "mobile web" on an iPhone or the "tablet web" on a Nexus or a "desktop web". The user is always the same, always wants to do the same thing.
+
+As such, when designing for the web, there design is limited to a single codebase that gets served to the end user. No mobile templates for mobile users and desktop templates for desktop users. One single codebase.
+
+### HTML Source Order Cannot Change
+
+The HTML source order that makes up a site is pretty sacred. It is the grounding for a solidly [accessible](#accessibility) site and for [search engine optimization](#rdfa). As it is the single source of truth for a website, it cannot change across [different devices](#device-detection).
+
+This is not to say that visual source order cannot change, and why this constraint is not so hard to work with. Tools like [grids](#grids) and [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) all aid in decoupling visual source order from HTML source order to allow for [semantic](#html-semantics), accessible HTML with a design to fit the content.
+
+### No Hiding Content
+
+[Users come to a site for its content first and foremost](#content-strategy). In fact, it is the [most basic need](#website-needs) of a user. Hiding content based on [screen size or device](#device-detection) precludes users from getting the content they came to the site for.
+
+> Any time you say somebody won't want that on their phone, you're wrong.
+
+Both [information architecture](#information-architecture) and [visual design](#visual-design) must start [mobile first](#mobile-first) and not make assumptions about content or [user capabilities](#progressive-enhancement) based on screen size or device. All content needs to be available regardless of device a user chooses to access a site with.
+
+This is not to say that systems of content cannot be employed. If only a small amount of space is available, pulling in a short headline instead of a long headline is fine, as is bringing in smaller or larger content images. The caution here is to not tie these content choices to [devices](#device-detection) but rather the layout and the needs of the content itself.
+
+### Design and Content Performance
+
+> It's not just what it looks like and feels like. Design is how it works.
+> 
+> [*Steve Jobs*](http://www.nytimes.com/2003/11/30/magazine/30IPOD.html)
+
+[Performance is a design constraint](#performance). From the [download size](#payload-performance) to [how the page works](#page-performance). Unlike print design, where there are few if any performance constraints of the final product and anything that can be imagined can be placed onto the page, everything from the fonts and icons to the layout and ornamentation have the potential to negatively affect performance on the web. The performance constraints placed on a site are not only for the design of the site, but for its content a well. Moving out of print design tools and [into the web](#design-in-browser) will allow for instant feedback to how design decisions influence performance of a site.
+
 # Performance
 
-When building modern websites, performance is a real design and development constraint and must be taken into account at every level of the development process. The reason it is a design and development constraint is fairly simple: with the explosion of an everything-connected world and the rise of the mobile-only user, the chances that a site is going to be viewed primarily by someone sitting at a workstation with a high speed internet connection diminishes daily. This constraint isn't new either; way back in 2006, Amazon reported that a [100ms delay cost them 1% of sales](https://sites.google.com/site/glinden/Home/StanfordDataMining.2006-11-28.ppt?attredirects=0). This was before the great reach of broadband took hold and before the current mobile computing boom came full swing, which have only lessened the patience of consumers. As [Compuware reports](http://e-commercefacts.com/research/2011/07/what-usrs-want-from-mobil/19986_WhatMobileUsersWant_Wp.pdf), *75% of mobile web users expect a site to load as fast or faster* on their mobile devices as they do their desktop computers, with *60% of mobile web users leaving a site and not coming back if it takes more than 3 seconds to load, with 78% of users trying only one more time*. Moreover, if a user abandons a mobile site, *33% will go to a competitor's site*. What all this means is that **performance affects website revenue**. Google, helpfully, provides some interesting insight into how performance could have affected their 2011 revenue:
+When building modern websites, performance is a real design and development constraint and must be taken into account at every level of the development process. The reason it is a design and development constraint is fairly simple: with the explosion of an everything-connected world and the rise of the mobile-only user, the chances that a site is going to be viewed primarily by someone sitting at a workstation with a high speed Internet connection diminishes daily. This constraint isn't new either; way back in 2006, Amazon reported that a [100ms delay cost them 1% of sales](https://sites.google.com/site/glinden/Home/StanfordDataMining.2006-11-28.ppt?attredirects=0). This was before the great reach of broadband took hold and before the current mobile computing boom came full swing, which have only lessened the patience of consumers. As [Compuware reports](http://e-commercefacts.com/research/2011/07/what-usrs-want-from-mobil/19986_WhatMobileUsersWant_Wp.pdf), *75% of mobile web users expect a site to load as fast or faster* on their mobile devices as they do their desktop computers, with *60% of mobile web users leaving a site and not coming back if it takes more than 3 seconds to load, with 78% of users trying only one more time*. Moreover, if a user abandons a mobile site, *33% will go to a competitor's site*. What all this means is that **performance affects website revenue**. Google, helpfully, provides some interesting insight into how performance could have affected their 2011 revenue:
 
 * Google made approximately [$18.8 Million](http://blog.hubspot.com/blog/tabid/6307/bid/33784/An-Industry-Breakdown-of-Google-s-100-Million-Per-Day-Advertising-Revenue-INFOGRAPHIC.aspx) per day on search advertising.
 * A 400ms delay (less than half of a second) [reduces average number of daily searches by 0.59%](http://www.igvita.com/slides/2013/breaking-1s-mobile-barrier.pdf) (and is about twice their warning threshold)
 * That amounts to a **daily loss of $111,000**, or about **$40.5 Million a year**
 
-When discussing and testing performance, it is important to do both with an eye toward mobile. This means that all performance testing needs to take place on actual devices, not just emulations, and on actual networks. Many of the standards have some wiggle room, but presented are the ideals and maximums for performance standards. The ideals and maximums have been chosen with an eye towards the realities of a media heavy site, including the realities of advertising and heavy multimedia usage. As [80% of the end-user response time is spent on the front-end](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-1-fewer-http-requests-7163.html), most of the performance suggestions are front-end based.
+Performance goes beyond the dollars you would loose from current customers if your site is slow, performance can and does have an affect on total potential audience size. Take for example [YouTube's Feather](http://blog.chriszacharias.com/page-weight-matters) project. By reducing the YouTube video page from as high as 1.2MB with dozens of requests down to 98KB and only 14 requests, they were able to open up the possibility of using YouTube to regions of the world that otherwise simply could not use it because it took too long. 
+
+> By keeping your client side code small and lightweight, you can literally open your product up to new markets.
 
 ## Testing and Grading Performance
 
-In addition to the below, sites should be able to hit and maintain certain performance benchmarks from a variety of different resources across the internet. These systems are a good way of doing easy tests of a site to determine how they stack up. The following are good testing and grading resources, and the minimum target scores for each resource:
+When discussing and testing performance, it is important to do both with an eye toward mobile. This means that all performance testing needs to take place on actual devices, not just emulations, and on actual networks. Many of the standards have some wiggle room, but presented are the ideals and maximums for performance standards. The ideals and maximums have been chosen with an eye towards the realities of a media heavy site, including the realities of advertising and heavy multimedia usage. As [80% of the end-user response time is spent on the front-end](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-1-fewer-http-requests-7163.html), most of the performance suggestions are front-end based. If your site is not (or can not) a media heavy site with lots of advertising, you should aim for the minimum numbers to be your absolute maximums.
+
+In addition to the below, sites should be able to hit and maintain certain performance benchmarks from a variety of different resources across the Internet. These systems are a good way of doing easy tests of a site to determine how they stack up. The following are good testing and grading resources, and the minimum target scores for each resource:
 
 * [Page Speed](https://developers.google.com/speed/pagespeed/insights) - 85
 * [Web Page Test](http://www.webpagetest.org/)
@@ -917,6 +998,8 @@ Once a site has been downloaded, performance of the user interactions is importa
 * Animate through CSS3 instead of JavaScript
 * Group JavaScript document reads and writes separately. Use [`requestAnimationFrame` to reduce layout thrashing](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/) when reading and writing to the DOM
 * Avoid Internet Explorer's CSS expression selectors
+
+A more comprehensive resource for learning about in-page performance optimization, including articles, posts, guides, talks, and more, is available at [Jank Free](http://jankfree.org/).
 
 ## Front End Optimizations
 
@@ -992,9 +1075,11 @@ The accessibility of a web site's content, including its source order without an
 
 ### Viewport Meta Tag
 
-When building responsive websites, for the time being, a non-standard meta tag needs to be used in order to tell browsers how to react. This is colloquy known as a "viewport tag". While there are many options that can go in to the viewport tag, the tag, in its entirety, that should be used is as follows:
+When building responsive websites, for the time being, a non-standard meta tag needs to be used in order to tell browsers how to react. This is colloquy known as a "viewport tag". While there are [many options](http://www.quirksmode.org/mobile/metaviewport/) that can go in to the viewport tag, the tag, in its entirety, that should be used is as follows:
 
-`<meta name="viewport" content="initial-scale=1.0">`
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
 
 There is currently a [CSS Device Adaptation](http://dev.w3.org/csswg/css-device-adapt/) development specification in the works which, when done, will move this from a markup tag to a CSS directive known as the [`@viewport`](http://dev.w3.org/csswg/css-device-adapt/#the-atviewport-rule) directive. Currently, Internet Explorer 10 and up, including on mobile devices, does not use the viewport meta tag, but rather the viewport CSS directive, so both should be included on all projects.
 
@@ -1008,19 +1093,19 @@ Due to lack of standards around it, each browser manufacturer creates their own 
 
 ### Components
 
-Components are the primary building block of any interface. They are the bits and bobs that combine to form a cohesive user interface; from menus to messages, pagers to pictures, and everything else in between. Components should be written to be able to be dropped in to any position in a layout. The way to accomplish this is to build components using [**eq.js**](https://github.com/snugug/eq.js). This will allow a component and its elements to respond appropriately regardless of where they land in a given document flow. Components should be simple layouts to position elements inside of themselves either through extends or by constructing a component with elements placed inside an internal layout (decide before starting a project and carry that decision through the lifespan of the project) if the layout is not component specific. They may choose to control their overall sizing and one-off sizing and positioning, but those choices should be relative the container they are dropped in to and not layout or position specific.
+Components are the primary building block of any interface. They are the bits and bobs that combine to form a cohesive user interface; from menus to messages, pagers to pictures, and everything else in between. If a component can be used in multiple positions in a layout (such as a message or a promoted item), [**eq.js**](https://github.com/snugug/eq.js) should be utilized to adapt their layouts (where appropriate) instead of media queries. This will allow a component and its elements to respond appropriately regardless of where they land in a given document flow. If a component will only be used in a single position (such as global headers or footers), media queries can be used. Basically, use what is most appropriate.
 
 #### Base Component
 
-Each project should contain a `base` component which contains base styling for raw tags (`h2`, `blockquote`, `p`, etc…). The `base` component's elements should be named after the tag they style, so basic styling for `h2` would provide both an extendable and full class `.base--h2`. To apply these styles, create a `styled` aspect, providing a `.base--STYLED` class. This aspect should have raw elements styled without classes, allowing it to be dropped into any section of a site and provide basic styling. Additional aspects can be created to create different base stylings.
+Each project should contain a `base` component which contains base styling for raw tags (`h2`, `blockquote`, `p`, etc…). The `base` component's elements should be named after the tag they style, so basic styling for `h2` would provide both an extendable and full class `.base--h2`. To apply these styles, create a `styled` aspect, providing a `.base--STYLED` class. This aspect should have raw elements styled without classes, allowing it to be dropped into any section of a site and provide basic styling. Additional aspects can be created to create different base stylings, such as `form` for base form styling.
 
 ### Layouts
 
-Layouts are the structure of an interface. Providing structure to pages and components, layouts are responsible for sizing and positioning of their elements. There are two kinds of layouts, simple and complex. The distinguishing factor between simple and complex layouts is that complex layouts adapt and change their sizing and positioning based on media queries whereas simple layouts do not. Complex layouts are generally used for laying out pages and regions within pages, with simple layouts being used for laying out sub-sections inside complex layouts and providing common layouts for components. While simple layouts may be used within components or even within other simple or complex layouts, complex layouts should never be used within one another.
+Layouts are the structure of an interface. Providing structure to pages and components, layouts are responsible for sizing and positioning of their elements. Layouts are generally used for laying out pages and regions within pages. Layouts that include viewport based media queries (`width`, `height`, etc…) should never be nested inside each other
 
 ### Aspects
 
-Aspects are a specific implementation of a component or layout. Components and layouts always should have an aspect when used to determine what kind of implementation is being worked with. Aspects can be used as a way to pivot styling of elements if need be or to control implementation-specific styling, such as changing colors in a message component or determining exact sizing of a body element of a layout. It is preferable to use aspects as pivot points rather than to create unique classes for each element as it allows for the reuse of identical elements regardless of the aspect of a component or layout they are used in.
+Aspects are a specific implementation of a component or layout. Aspects can be used as a way to pivot styling of elements if need be or to control implementation-specific styling, such as changing colors in a message component or determining exact sizing of a body element of a layout. It is preferable to use aspects as pivot points rather than to create unique classes for each element as it allows for the reuse of identical elements regardless of the aspect of a component or layout they are used in. Elements should only pivot off of aspects, not off of an aspect-less component or layout.
 
 ### Elements
 
@@ -1028,24 +1113,24 @@ Elements are the individual pieces that make up a component or layout, each bein
 
 ### States
 
-States provide a way to alter how a component, layout, element, or aspect behaves. Common states include `active`, `open`, and `closed`. Because states live in the in-between world of JavaScript and CSS, often changing with interactions from the user, states are controlled by data attributes and get attached to the components, layouts, elements, or aspects they are modifying. This provides easy to maintain states on a per-object basis without needing per-object states.
+States provide a way to alter how a component, layout, element, or aspect behaves. Common states include `active`, `open`, and `closed`. Because states live in the in-between world of JavaScript and CSS, often changing with interactions from the user, states are controlled by data attributes (`[data-state="active"]`) and get attached to the components, layouts, elements, or aspects they are modifying. This provides easy to maintain states on a per-object basis without needing per-object states.
 
 ### CSS Naming Conventions
 
-Components and layouts form prefixes for aspects and elements, separated by double dash (`--`). Simple layouts start with an underscore (`_`) and complex layouts start with two underscores (`__`) to distinguish them from components, and aspects are written in all caps (`CAPS`) to distinguish them from elements, written in all lowercase (`lowercase`). States are applied to the state data attribute (`data-state`) and queried using attribute selectors as they have the strong tendency to either be manipulated by JavaScript or be used as a hook for JavaScript. If an object has multiple states, each state should be space (`' '`) separated in the `data-state` data attribute. A sample document written up using this naming convention could look like the following:
+Components and layouts form prefixes for aspects and elements, separated by double dash (`--`). Layouts start with an underscore (`_`) to distinguish them from components. Aspects are written in all caps (`CAPS`) to distinguish them from elements, written in all lowercase (`lowercase`). States are applied to the state data attribute (`data-state`) and queried using attribute selectors as they have the strong tendency to either be manipulated by JavaScript or be used as a hook for JavaScript. If an object has multiple states, each state should be space (`' '`) separated in the `data-state` data attribute. A sample document written up using this naming convention could look like the following:
 
 ```html
 <!-- Article layout with Big Media aspect -->
-<div class="__article--BIG-MEDIA">
+<div class="_article--BIG-MEDIA">
   <!-- Main element of Article layout -->
-  <article class="__article--main">
+  <article class="_article--main">
     <!-- Heading element of Article layout -->
-    <div class="__article--heading">
+    <div class="_article--heading">
       <!-- PRIMARY Heading aspect of Typography component -->
       <h1 class="typography--PRIMARY-HEADING">Article Title</h1>
     </div>
     <!-- Media element of Article layout -->
-    <figure class="__article--media">
+    <figure class="_article--media">
       <!-- Video components, Full HD aspect -->
       <div class="video--FULL-HD">
         <!-- Video element of Video component -->
@@ -1053,13 +1138,13 @@ Components and layouts form prefixes for aspects and elements, separated by doub
       </div>
     </figure>
     <!-- Body element of Article layout, Area aspect of Typography component  -->
-    <div class="__article--body typography--AREA">
+    <div class="_article--body typography--AREA">
       <h2>Some user entered copy goes here</h2>
       <p>Yay Copy!</p>
     </div>
   </article>
   <!-- Secondary element of Article layout  -->
-  <aside class="__article--secondary">
+  <aside class="_article--secondary">
     <!-- Popular aspect of Related component -->
     <div class="related--POPULAR">
       <!-- Heading element of Related component -->
@@ -1083,16 +1168,15 @@ When writing CSS, use [Sass](http://sass-lang.com/) with the [Compass](http://co
 * [Singularity](https://github.com/Team-Sass/Singularity) - Grid framework
 * [Breakpoint](https://github.com/Team-Sass/breakpoint) - Media query framework
 * [Toolkit](https://github.com/team-sass/toolkit) - Variety of useful tools for web design and development
-* [Jacket](https://github.com/Team-Sass/jacket) - Tool for deciding what gets printed in a given stylesheet
 * [Color Schemer](https://github.com/Team-Sass/color-schemer) - Advanced color functions
 * [Modular Scale](https://github.com/Team-Sass/modular-scale) - Numeric relationships, especially for typography
 * [Import Once](https://github.com/chriseppstein/compass/blob/master/import-once/README.md) - Changes the way `@import` works so that imports only happen once. Useful for deep nested or shared dependencies
 
-The following should be using the standard [Compass configuration](http://compass-style.org/help/tutorials/configuration-reference/) for all projects:
+The following should be using the standard [Compass configuration](http://compass-style.org/help/tutorials/configuration-reference/) for all projects (`http_path` is likely to change on a project-to-project basis):
 
 ```ruby
 # Set this to the root of your project when deployed:
-http_path = "/"
+http_path = "./"
 css_dir = "css"
 sass_dir = "sass"
 images_dir = "images"
@@ -1117,6 +1201,8 @@ Mixins are best used when they don't needlessly duplicate the properties they wr
 Mixins should also be divided up by purpose. While an omni mixin may be easier to write, having smaller mixins will make maintaining and using said mixins, as well as changing discrete parts of a rendered component, easier to do.
 
 Let's take a look at a typical message component mixin as an example of how to re-write it using our mixin/extend pattern.
+
+**Sass**
 
 ```scss
 // Sass
@@ -1144,6 +1230,8 @@ Let's take a look at a typical message component mixin as an example of how to r
     @include message(red);
 }
 ```
+
+**CSS**
 
 ```css
 /* CSS */
@@ -1180,37 +1268,32 @@ Let's take a look at a typical message component mixin as an example of how to r
 
 While the single mixin may allow us to easily get the output we want, it does so at the cost of duplicating properties, and thus vastly bloating, our output CSS. This can be remedied almost entirely simply by rewriting our original mixin using our new mixin/extend pattern.
 
+**Sass**
+
 ```scss
 // Sass
 $message-padding: .25em .5em !default;
 $message-width: 80% !default;
 $message-extend: true !default;
 
-@mixin message--CORE($padding: $message-padding, $width: $message-width, $extend: $message-extend) {
-  // If we're not extending ($extend == false), we write properties directly
-  @if not $extend {
-    box-sizing: border-box;
-    padding: $padding;
+@mixin message($padding: $message-padding, $width: $message-width, $extend: $message-extend) {
+  padding: $padding;
+  width: $width;
 
-    width: $width;
-    margin: 0 auto;
+  @include message--static($extend);
+}
 
-    // Border's color is based off of the `color` property, so we can write valid
-    //  shorthand without the color. Border options aren't dynamic to clearly show a
-    //  succinctly show this short hand method.
-    border: 2px solid;
+@mixin message--static($extend: $message-extend) {
+
+  @if $extend == true {
+    @include dynamic-extend('message') {
+      @include message--static(false);
+    }
   }
   @else {
-    // If we are extending ($extend == true), we extend the placeholder selector
-    @extend %message--CORE;
-    // If $padding is different than our default padding, we write that property
-    @if $padding != $message-padding {
-        padding: $padding;
-    }
-    // If $width is different than our default width, we write that property
-    @if $width != $message-width {
-      width: $width;
-    }
+    @include box-sizing(border-box);
+    margin: 0 auto;
+    border: 2px solid;
   }
 }
 
@@ -1222,31 +1305,39 @@ $message-extend: true !default;
 
 %message--CORE {
   // We include the message-core mixin with $extend == false to force the properties to be written
-  @include message--CORE($extend: false);
+  @include message();
 }
 
 .message--STATUS {
-  @include message--CORE;
+  @extend %message--CORE;
   @include message-coloring(green);
 }
 
 .message--WARNING {
-  @include message--CORE;
+  @extend %message--CORE;
   @include message-coloring(yellow);
 }
 
 .message--ERROR {
-  @include message--CORE;
+  @extend %message--CORE;
   @include message-coloring(red);
 }
 ```
 
+**CSS**
+
 ```css
 /* CSS */
-.message--STATUS, .message--WARNING, .message--ERROR {
-  box-sizing: border-box;
+.message--STATUS,
+.message--WARNING,
+.message--ERROR {
   padding: 0.25em 0.5em;
   width: 80%;
+}
+.message--STATUS,
+.message--WARNING,
+.message--ERROR {
+  box-sizing: border-box;
   margin: 0 auto;
   border: 2px solid;
 }
@@ -1274,17 +1365,19 @@ While this approach certainly requires more work up front to build the mixins an
 
 #### Partial Structure
 
-Sass partials are a way for us to organize our styling knowledge into maintainable and easily grokable chunks. An example Sass partial structure is available in the folder `sass`.
+Sass partials are a way for us to organize our styling knowledge into maintainable and easily grokable chunks. An example North project, including this partial structure, is available in the [examples](https://github.com/north/north/tree/master/examples) folder.
 
-At the root of our Sass folder is our `style.scss` file, which holds the core of our styling, and a `no-script.scss` file to provide a CSS fallback if scripting isn't available. In the `sass` folder, create an `enhancements` folder, a `fallbacks` folder, and a `partials` folder for stylesheets that provide enhanced styling for powerful browsers, fallback styling for less powerful browsers, and partials for all to draw from, each respectively.
+At the root of our Sass folder is our `style.scss` file, which holds the core of our styling, and a `partials` directory to hold our various partials.
 
-Each feature being enhanced with or fallback being provided for should be named `feature.scss` and be placed into their respective folder; for instance, enhancements and fallbacks for CSS Animations  would have a folder structure that looked something like `sass/enhancements/css-animations.scss` and `sass/fallbacks/css-animations.scss`.
+The `partials` directory should be divided up into 4 sub directories, `global`, `base`, `components`, and `layouts`. Inside of `global`, there should be a folder a piece for `variables`, `functions`, `mixins`, and `extendables`, with partials to match. Inside each of those folders should go partials whose content should be made available globally and aren't component specific. For instance, global color and typographic variables, background/text color contrast mixins, ligature extendables, etc…
 
-The `partials` directory should be divided up into 3 sub directories, `global`, `components`, and `layouts`. Inside of `global`, there should be a  folder a piece for `variables`, `functions`, `mixins`, and `extendables`, with partials to match. Inside each of those folders should go partials whose content should be made available globally and aren't component specific. For instance, global color and typographic variables, background/text color contrast mixins, ligature extendables, etc…
-
-Both components and layouts should be built using a similar partial structure, henceforth known as the component partial structure. Each component should have a partial and matching folder, and inside that folder a partial a piece for `variables`, `functions`, `mixins`, and `extendables`. Each of these partials should hold styling knowledge specific to that component; for instance, `variables` could have color variables specific to that component, but the color it is set to should come from the global color partial. An example of this can be seen in the example `sass` folder.
+Base, components, and layouts should be built using the same partial structure, henceforth known as the component partial structure. Each component should have a partial and matching folder, and inside that folder a partial a piece for `variables`, `functions`, `mixins`, and `extends`. Each of these partials should hold styling knowledge specific to that component; for instance, `variables` could have color variables specific to that component, but the color it is set to should come from the global color partial. An example of this can be seen in the example `sass` folder.
 
 The Import Once extension should be utilized to prevent duplication of selectors for extendable classes. Mixins should share their naming convention with the object they are used to style.
+
+#### Enhanced and Degraded Styling
+
+It is important to be able to provide enhanced (or degraded) styling based on the [progressive enhancement](#progressive-enhancement) needs of a project. The recommended way to do this is through post-processing a stylesheet with [Gulp CSS Target](http://snugug.com/musings/target-your-css). Using this method will spin multiple stylesheets out of a main one based on defined comment blocks, allowing for easy maintainability. It is recommended that styles are placed in CSS Target comments not extend other selectors as extends are unreliably spun out.
 
 #### Variable Naming
 
@@ -1328,12 +1421,86 @@ When building site, very often a point will come when a decision must be made as
 * Is the script performant? Does it have performance benchmarks? If not, can it be benchmarked? If a script, regardless of weight, slows down a site significantly, its use should be reconsidered.
 * Given browser support, is a heavy JavaScript library like jQuery or Dojo needed? Can paired down versions of those libraries be used? Does usage require the full support behind one of these libraries, or can a small DOM/AJAX library such as [Chibi](https://github.com/kylebarrow/chibi) be effective?
 
+# Tools and Resources
+
+There have been a handful of tools that have been created in order to assist in working with the North standards, making building awesome things easier.
+
+## North Sass Plugin
+
+Available both as a [Bower](http://bower.io/) component (`bower install north --save-dev`) or as a Compass extension (`gem 'north', '~> 0.3.2'` in your [Gemfile](http://bundler.io/)), the North Sass plugin is designed to make working with North's [CSS Naming Conventions](#css-naming-conventions) easy. The North Sass Plugin requires at least *Sass 3.3*. Simply import into a project and have the following mixins and functions available for use:
+
+```scss
+component($name)
+@include component($name) { @content }
+@include components($names...) { @content }
+
+layout($name)
+@include layout($name) { @content }
+@include layoutss($names...) { @content }
+
+aspect($name)
+@include aspect($name) { @content }
+@include aspects($names...) { @content }
+
+element($name)
+@include element($name) { @content }
+@include elements($names...) { @content }
+
+state($name)
+@include state($name) { @content }
+@include states($names...) { @content }
+```
+
+Each function (save `state`) will return their given part of a selector (`aspect` will only return the capitalized half of a selector, `layout` will only return the lowercased name with leading underscore, etc…). `state` will return a full attribute selector to be used. Mixins must contain content. The plural versions of each mixin allow multiple names to be passed, each getting comma separated in the output. Usage of the mixins can look something like the following:
+
+**Sass**
+
+```scss
+.message {
+  @include aspect(warning) {
+    background: yellow;
+  }
+  @include aspect(error) {
+    background: red;
+  }
+
+  @include element(title) {
+    font-size: 2em;
+  }
+}
+```
+
+**CSS**
+
+
+```css
+.message--WARNING {
+  background: yellow;
+}
+.message--ERROR {
+  background: red;
+}
+.message--title {
+  font-size: 2em;
+}
+```
+
+## Generator North
+
+[Generator North](https://github.com/Snugug/generator-north) is a [Yeoman](http://yeoman.io/) generator designed to quickly spin up new North based projects, including integrations with [Sass and Compass](#sass-and-compass), [Bower](http://bower.io/), and [JSHint](http://www.jshint.com/), with an option to include [BrowserSync](http://browsersync.io/) server and live reloading. Either [Grunt](http://gruntjs.com/) or [Gulp](http://gulpjs.com/) can be chosen as a task runner. Generator North also provides an easy way scaffold out new components and layouts, reducing the overhead needed to create each new component or layout.
+
+## Intake Center
+
+[Intake.Center](https://github.com/Snugug/intake) is a webapp developed to assist with [role definitions](https://github.com/Snugug/north#roles-and-responsibilities) and [content strategy](https://github.com/Snugug/north#content-strategy). It includes tools for developing and recording [project vision](#project-vision), [user personas](#user-personas), and [content models](#content-modeling) based on [Schema.org](http://schema.org/) schemas. [Content inventory](#content-inventory) and [audit](#content-audit) should be performed before modeling takes place.
+
+
 # License and Acknowledgements
 
-Copyright © Sam Richard (Snugug) and made available under the [MIT License (MIT)](https://github.com/Snugug/north/blob/master/LICENSE).
+Copyright © [Sam Richard](https://github.com/snugug) ([Snugug](http://twitter.com/snugug)) and made available under the [MIT License (MIT)](https://github.com/Snugug/north/blob/master/LICENSE).
 
 One of the primary goals of North was to create a set of development standards that not only were designed for a modern workflow and process in mind, but also that came from the learnings and understandings of multiple industry leading experts, not a single person. These standards reach across multiple verticals, so having experts from each vertical is critical to the success of these standards. The following individuals assisted in brainstorming and developing North or otherwise directly influenced North and have not otherwise been acknowledged in the document itself, and for that I am grateful:
 
+* [Adam Asch](http://www.linkedin.com/pub/adam-asch/2/135/973)
 * [Mason Wendell](https://github.com/canarymason)
 * [Eric Duran](https://github.com/ericduran)
 * [Scott Rigby](https://github.com/scottrigby)
@@ -1341,4 +1508,3 @@ One of the primary goals of North was to create a set of development standards t
 * [Nicole Henninger](https://github.com/nikkiana)
 * [Marianne Maguire Flanagan](http://www.linkedin.com/in/mariannemaguire)
 * [Miguel Blanco](http://www.mikho.com/)
-* [Adam Asch](http://www.linkedin.com/pub/adam-asch/2/135/973)
