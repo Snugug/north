@@ -79,7 +79,7 @@ bower install north --save-dev
     * [Media Queries](#media-queries)
     * [Iconography](#iconography)
     * [Images](#images) 
-  * [Designer checklist](#designer-checklist)
+  * [Designer Checklist](#designer-checklist)
 5. [Performance](#performance)
   * [Testing and Grading Performance](#testing-and-grading-performance)
   * [Payload Performance](#payload-performance)
@@ -858,38 +858,14 @@ Images, usually either content images or background images in CSS, need to be ha
 
 ## Designer Checklist
 
--This is a short checklist for designers delivering visual designs or wireframes for responsive sites
-+This is a short checklist for designers delivering visual designs or wireframes for responsive sites.
+For designers who aren't used to working with design-in-browser or responsive web designs, here is a short list of questions to ask yourself during the design process. 
  
--<ol>
--<li>Are all the elements present for all screen sizes?  All elements should be present no matter the screen size. The elements can be slightly altered, but all users deserve to the same content, no matter how they are viewing our website.
--</li>
-+**1. Are all the elements present for all screen sizes?**  
-+  All elements should be present no matter the screen size. The elements can be slightly altered, but all users deserve to the same content, no matter how they are viewing our website.
- 
--<li>*Is the HTML order the same for all screen sizes?*
-+**2. Is the HTML order the same for all screen sizes?**  
-+  We cannot re-arrange source order for HTML between screen sizes. This means that content cannot "break out of their boxes".  
- 
--We cannot re-arrange source order for HTML between screen sizes. This means that content cannot "break out of their boxes"
--</li>
-+**3. Are all the image elements necessary for this page?**  
-+  The more image elements you can remove, the faster the load time for the web page.
-+We should try and use CSS as much as possible for styling.  
- 
--<li>*Are all the image elements necessary for this page?*
-+**4. Are any new components, typography, ect. absolutely necessary?**  
-+  We should try and re-use previous styles and components as much as possible, unless we have a completely new functionality.
- 
--The more image elements you can remove, the faster the load time for the web page.
--We should try and use CSS as much as possible for styling.
--</li>
--
--<li>*Are any new components, typography, ect. absolutely necessary?*
--
--We should try and re-use previous styles and components as much as possible, unless we have a completely new functionality.
--</li>
--</ol>
+* **What is your minimum viable design?** Before you even start desigining, it's important to think about what is the minimum amount of design that this site requires. Designers design, that's just what they do, but it's too easy to fall into over-designing a site and making it impossible to build. Remember: "A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away." - Antoine de Saint-Exupery. Also, while we're on the subject of less is more, [this is still a website](http://justinjackson.ca/words.html). It's naturally responsive and lightning fast. 
+* **Are all the elements present for all screen sizes?**  All elements should be present no matter the screen size. While elements can be slightly altered for a better experience, all users deserve to have access to the same content no matter how they are viewing your website. 
+* **Are all the image elements necessary for this page?** The more media elements that are loaded with a page, the slower the load time. This is one of the easiest places where we can "trim the fat" so to speak. Instead of image, video, and music, use typography, font-icons, and CSS whenever possible to style the page. 
+* **Are any new components, typography, icons, images ect. absolutely necessary?** We should try to reuse styles and components as much as possible. Template based design allows for us to quickly generate new pages, creates a cohesive experience for the user, and as a bonus, is much easier to build and debug. 
+* **Is the HTML source order the same for all screen sizes?** There are lots of fancy things we can do that changes the visual order without changing the source order, so make sure your designs take advantage of these and don't require a source order change for different screensizes. 
+*
  
 
 # Performance
