@@ -891,7 +891,7 @@ Images, usually either content images or background images in CSS, need to be ha
 ## Design Constraints
 
 > Design depends largely on constraints
-> 
+>
 >  [*Charles Eames*](www.scielo.cl/pdf/arq/n49/art11.pdf)
 
 There are a number of design constraints when creating projects that are responsive. Designing for the web and designing for print have a different set of initial constraints and a different set of ongoing constraints, so when [designing for the web](#visual-design) the constraints and process of print design [likely won't work](#design-in-browser). The following is an explanation of some of the new design constraints of designing for the web.
@@ -899,7 +899,7 @@ There are a number of design constraints when creating projects that are respons
 ### One Code Base
 
 > …[T]here is no mobile web… There are plenty of mobile devices. And equally there is no desktop web. It is just the web… one web.
-> 
+>
 > [*Jeremy Keith*](http://adactio.com/articles/5826/)
 
 When designing for the web, [no matter the screen size or device](#device-detection) a user chooses to access a site with, that is not a "different web". It's not the "mobile web" on an iPhone or the "tablet web" on a Nexus or a "desktop web". The user is always the same, always wants to do the same thing.
@@ -925,7 +925,7 @@ This is not to say that systems of content cannot be employed. If only a small a
 ### Design and Content Performance
 
 > It's not just what it looks like and feels like. Design is how it works.
-> 
+>
 > [*Steve Jobs*](http://www.nytimes.com/2003/11/30/magazine/30IPOD.html)
 
 [Performance is a design constraint](#performance). From the [download size](#payload-performance) to [how the page works](#page-performance). Unlike print design, where there are few if any performance constraints of the final product and anything that can be imagined can be placed onto the page, everything from the fonts and icons to the layout and ornamentation have the potential to negatively affect performance on the web. The performance constraints placed on a site are not only for the design of the site, but for its content a well. Moving out of print design tools and [into the web](#design-in-browser) will allow for instant feedback to how design decisions influence performance of a site.
@@ -938,7 +938,7 @@ When building modern websites, performance is a real design and development cons
 * A 400ms delay (less than half of a second) [reduces average number of daily searches by 0.59%](http://www.igvita.com/slides/2013/breaking-1s-mobile-barrier.pdf) (and is about twice their warning threshold)
 * That amounts to a **daily loss of $111,000**, or about **$40.5 Million a year**
 
-Performance goes beyond the dollars you would loose from current customers if your site is slow, performance can and does have an affect on total potential audience size. Take for example [YouTube's Feather](http://blog.chriszacharias.com/page-weight-matters) project. By reducing the YouTube video page from as high as 1.2MB with dozens of requests down to 98KB and only 14 requests, they were able to open up the possibility of using YouTube to regions of the world that otherwise simply could not use it because it took too long. 
+Performance goes beyond the dollars you would loose from current customers if your site is slow, performance can and does have an affect on total potential audience size. Take for example [YouTube's Feather](http://blog.chriszacharias.com/page-weight-matters) project. By reducing the YouTube video page from as high as 1.2MB with dozens of requests down to 98KB and only 14 requests, they were able to open up the possibility of using YouTube to regions of the world that otherwise simply could not use it because it took too long.
 
 > By keeping your client side code small and lightweight, you can literally open your product up to new markets.
 
@@ -1401,7 +1401,7 @@ When building site, very often a point will come when a decision must be made as
 * If the script builds off of another framework, such as a jQuery Plugin, examine the problem and determine if writing a custom solution can be as effective and lighter. Not everything needs to be a jQuery Plugin.
 * If a script does not come with a minified version, determine if it can be minified. All scripts should be minified, so if a script being evaluated cannot, that should be taken into consideration.
 * Is the script performant? Does it have performance benchmarks? If not, can it be benchmarked? If a script, regardless of weight, slows down a site significantly, its use should be reconsidered.
-* Given browser support, is a heavy JavaScript library like jQuery or Dojo needed? Can paired down versions of those libraries be used? Does usage require the full support behind one of these libraries, or can a small DOM/AJAX library such as [Chibi](https://github.com/kylebarrow/chibi) be effective?
+* Given browser support, is a heavy JavaScript library like jQuery or Dojo needed? Can pared-down versions of those libraries be used? Does usage require the full support behind one of these libraries, or can a small DOM/AJAX library such as [Chibi](https://github.com/kylebarrow/chibi) be effective?
 
 # Tools and Resources
 
