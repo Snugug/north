@@ -85,6 +85,7 @@ bower install north --save-dev
     * [HTML Source Order Cannot Change](#html-source-order-cannot-change)
     * [No Hiding Content](#no-hiding-content)
     * [Design and Content Performance](#design-and-content-performance)
+  * [Designer Checklist](#designer-checklist)
 5. [Performance](#performance)
   * [Testing and Grading Performance](#testing-and-grading-performance)
   * [Payload Performance](#payload-performance)
@@ -929,6 +930,23 @@ This is not to say that systems of content cannot be employed. If only a small a
 > [*Steve Jobs*](http://www.nytimes.com/2003/11/30/magazine/30IPOD.html)
 
 [Performance is a design constraint](#performance). From the [download size](#payload-performance) to [how the page works](#page-performance). Unlike print design, where there are few if any performance constraints of the final product and anything that can be imagined can be placed onto the page, everything from the fonts and icons to the layout and ornamentation have the potential to negatively affect performance on the web. The performance constraints placed on a site are not only for the design of the site, but for its content a well. Moving out of print design tools and [into the web](#design-in-browser) will allow for instant feedback to how design decisions influence performance of a site.
+
+
+## Designer Checklist
+
+For designers who aren't used to working with design-in-browser or responsive web designs, here is a short list of questions to ask yourself during the design process.
+
+* **What is your minimum viable design?** Before you even start desigining, it's important to think about what is [the minimum amount of design that this site requires](#website-needs). Designers design, that's just what they do, but it's too easy to fall into over-designing a site. Remember:
+
+*"A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away." - Antoine de Saint-Exupery*.
+
+Also, while we're on the subject of less is more, [this is still a website](http://justinjackson.ca/words.html). It's naturally responsive and lightning fast.
+* **Are all elements present for all screen sizes?**  All elements should be present no matter the screen size. While elements can be slightly altered for a better experience, all users deserve to have access to the same content no matter how they are viewing your website. Also "hidden" elements will decrease the [accessibility of your website](#accessibility). Just try using a screen reader on a site with lots of hidden components!
+* **Are all the media elements necessary for this page?** The more media elements that are loaded with a page, the slower the load time. This is one of the easiest places where we can "trim the fat" so to speak. Instead of [image](#images), video, and music; use typography, font-icons, and CSS whenever possible to style the page.
+* **Are any new components, typography, icons, images ect. absolutely necessary?** We should try to reuse styles and components as much as possible. Template based design allows for us to quickly generate new pages, [creates a cohesive experience for the user](#consistency-and-predictability), and as a bonus, is much easier to build and debug.
+* **Is the HTML source order the same for all screen sizes?** There are lots of fancy things we can do that changes the visual order without changing the source order, so make sure your designs take advantage of these and don't require a source order change for different screensizes. Besides removing the need to alter the DOM with JavaScript (which is never recommended proper source order improves [accessibility](#accessibility) and SEO.
+
+
 
 # Performance
 
