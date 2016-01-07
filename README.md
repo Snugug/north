@@ -892,7 +892,7 @@ Images, usually either content images or background images in CSS, need to be ha
 
 > Design depends largely on constraints
 > 
->  [*Charles Eames*](www.scielo.cl/pdf/arq/n49/art11.pdf)
+>  [*Charles Eames*](http://www.scielo.cl/pdf/arq/n49/art11.pdf)
 
 There are a number of design constraints when creating projects that are responsive. Designing for the web and designing for print have a different set of initial constraints and a different set of ongoing constraints, so when [designing for the web](#visual-design) the constraints and process of print design [likely won't work](#design-in-browser). The following is an explanation of some of the new design constraints of designing for the web.
 
