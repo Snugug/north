@@ -85,6 +85,8 @@ bower install north --save-dev
     * [HTML Source Order Cannot Change](#html-source-order-cannot-change)
     * [No Hiding Content](#no-hiding-content)
     * [Design and Content Performance](#design-and-content-performance)
+    * [Images](#images) 
+  * [Designer Checklist](#designer-checklist)
 5. [Performance](#performance)
   * [Testing and Grading Performance](#testing-and-grading-performance)
   * [Payload Performance](#payload-performance)
@@ -887,6 +889,22 @@ Images, usually either content images or background images in CSS, need to be ha
 * **High Pixel Density Images** - Instead of serving different sized images for pixel densities, utilize [compressive images](http://filamentgroup.com/lab/rwd_img_compression/) to serve low weight and crisp images.
 * **Content Images** - Content images should be loaded in using a responsive image solution. Unfortunately, there is currently no standard for responsive images, so one of two responsive image solutions should be used. The primary solution should be [Borealis](https://github.com/Snugug/borealis) which provides for element query based, lazy loaded responsive images. Because it is element query based, it may not work for all instances where an image is needed. For those instances, use [Picturefill](https://github.com/scottjehl/picturefill).
 * **CSS Images** - Utilize one of the approaches outlined in the [media query asset downloading test](http://timkadlec.com/2012/04/media-query-asset-downloading-results/) that has the least amount of additional requests. Be consistent with choice in solution.
+* 
+
+## Designer Checklist
+
+For designers who aren't used to working with design-in-browser or responsive web designs, here is a short list of questions to ask yourself during the design process. 
+ 
+* **What is your minimum viable design?** Before you even start desigining, it's important to think about what is [the minimum amount of design that this site requires](#website-needs). Designers design, that's just what they do, but it's too easy to fall into over-designing a site. Remember: 
+
+> *"A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away." - Antoine de Saint-Exupery*. 
+
+Also, while we're on the subject of less is more, [this is still a website](http://justinjackson.ca/words.html). It's naturally responsive and lightning fast. 
+* **Are all elements present for all screen sizes?**  All elements should be present no matter the screen size. While elements can be slightly altered for a better experience, all users deserve to have access to the same content no matter how they are viewing your website. Also "hidden" elements will decrease the [accessibility of your website](#accessibility). Just try using a screen reader on a site with lots of hidden components!   
+* **Are all the media elements necessary for this page?** The more media elements that are loaded with a page, the slower the load time. This is one of the easiest places where we can "trim the fat" so to speak. Instead of [image](#images), video, and music; use typography, font-icons, and CSS whenever possible to style the page. 
+* **Are any new components, typography, icons, images ect. absolutely necessary?** We should try to reuse styles and components as much as possible. Template based design allows for us to quickly generate new pages, [creates a cohesive experience for the user](#consistency-and-predictability), and as a bonus, is much easier to build and debug. 
+* **Is the HTML source order the same for all screen sizes?** There are lots of fancy things we can do that changes the visual order without changing the source order, so make sure your designs take advantage of these and don't require a source order change for different screensizes. Besides removing the need to alter the DOM with JavaScript (which is never recommended proper source order improves [accessibility](#accessibility) and SEO. 
+ 
 
 ## Design Constraints
 
